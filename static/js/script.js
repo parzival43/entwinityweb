@@ -1,114 +1,3 @@
-const scrollTrack = document.getElementById('scrollTrack');
-const scrollContainer = document.getElementById('scrollContainer');
-let currentTranslate = 0;
-let isMouseOver = false;
-let isDragging = false;
-let startY;
-let scrollStartTranslate;
-let animationID;
-const scrollSpeed = 1;
-let lastTime = 0;
-const frameRate = 1000 / 60;
-
-function setupInfiniteScroll() {
-    const items = Array.from(scrollTrack.children);
-    const itemHeight = items[0].offsetHeight + parseInt(window.getComputedStyle(items[0]).marginTop) * 2;
-    const totalHeight = items.length * itemHeight;
-
-    const setsNeeded = Math.ceil(scrollContainer.offsetHeight / totalHeight) + 2;
-    for (let i = 0; i < setsNeeded; i++) {
-        items.forEach(item => {
-            const clone = item.cloneNode(true);
-            scrollTrack.appendChild(clone);
-        });
-    }
-
-    return totalHeight;
-}
-
-const totalHeight = setupInfiniteScroll();
-
-function animate(currentTime) {
-    if (currentTime - lastTime < frameRate) {
-        animationID = requestAnimationFrame(animate);
-        return;
-    }
-    
-    if (!isMouseOver && !isDragging) {
-        currentTranslate -= scrollSpeed;
-        if (Math.abs(currentTranslate) >= totalHeight) {
-            currentTranslate = 0;
-        }
-        scrollTrack.style.transform = `translateY(${currentTranslate}px)`;
-    }
-    
-    lastTime = currentTime;
-    animationID = requestAnimationFrame(animate);
-}
-
-scrollContainer.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    isMouseOver = true;
-    startY = e.clientY;
-    scrollStartTranslate = currentTranslate;
-    scrollContainer.style.cursor = 'grabbing';
-});
-
-window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    
-    const deltaY = startY - e.clientY;
-    currentTranslate = scrollStartTranslate - deltaY;
-    
-    if (Math.abs(currentTranslate) >= totalHeight) {
-        currentTranslate = 0;
-        scrollStartTranslate = 0;
-        startY = e.clientY;
-    }
-    
-    scrollTrack.style.transform = `translateY(${currentTranslate}px)`;
-});
-
-window.addEventListener('mouseup', () => {
-    isDragging = false;
-    isMouseOver = false;
-    scrollContainer.style.cursor = 'grab';
-});
-
-scrollContainer.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    isMouseOver = true;
-    startY = e.touches[0].clientY;
-    scrollStartTranslate = currentTranslate;
-});
-
-scrollContainer.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    
-    const deltaY = startY - e.touches[0].clientY;
-    currentTranslate = scrollStartTranslate - deltaY;
-    
-    if (Math.abs(currentTranslate) >= totalHeight) {
-        currentTranslate = 0;
-        scrollStartTranslate = 0;
-        startY = e.touches[0].clientY;
-    }
-    
-    scrollTrack.style.transform = `translateY(${currentTranslate}px)`;
-});
-
-scrollContainer.addEventListener('touchend', () => {
-    isDragging = false;
-    isMouseOver = false;
-});
-
-scrollContainer.addEventListener('selectstart', (e) => {
-    if (isDragging) e.preventDefault();
-});
-
-requestAnimationFrame(animate);
-
 // note: read the comments before you edit 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -124,14 +13,16 @@ document.addEventListener("mousemove", function (dets) {
     blur.style.top = dets.y - 250 + "px";
 });
 
+
+
 // GSAP Animation ----------------- Change background color on scroll
 gsap.to("#main", {
-    backgroundColor: "#9898e8",
+    backgroundColor: "#9898e8", // Lavender color
     scrollTrigger: {
         trigger: "#main",
         scroller: "body",
-        start: "top -25%",
-        end: "top -70%",
+        start: "top -25%", 
+        end: "top -70%",   
         scrub: 2,
     }
 });
@@ -198,6 +89,7 @@ gsap.from("#page4 h1", {
     }
 });
 
+// Scroll event listener for header background color change
 window.addEventListener("scroll", function () {
     const nav = document.getElementById("nav");
     const logo = nav.querySelector("img");
@@ -214,6 +106,7 @@ window.addEventListener("scroll", function () {
     }
 });
 
+// Dynamic Text Typing Effect
 const textElement = document.getElementById('dynamic-text');
 const words = ['Global Connections', 'International Networking', 'Leadership Opportunities', 'Collaborative Research', 'Skill Enhancement', 'Impactful Solutions', 'Career Development'];
 let wordIndex = 0;
@@ -225,10 +118,10 @@ function type() {
         if (charIndex < words[wordIndex].length) {
             textElement.innerHTML = 'Uncover the realm of <span class="dynamic-word">' + words[wordIndex].substring(0, charIndex + 1) + '</span>';
             charIndex++;
-            setTimeout(type, 100);
+            setTimeout(type, 100); 
         } else {
             isTyping = false;
-            setTimeout(erase, 2000);
+            setTimeout(erase, 2000); 
         }
     }
 }
@@ -237,19 +130,20 @@ function erase() {
     if (charIndex > 0) {
         textElement.innerHTML = 'Uncover the realm of <span class="dynamic-word">' + words[wordIndex].substring(0, charIndex - 1) + '</span>';
         charIndex--;
-        setTimeout(erase, 50);
+        setTimeout(erase, 50); 
     } else {
         isTyping = true;
         wordIndex = (wordIndex + 1) % words.length;
         setTimeout(() => {
             textElement.innerHTML = 'Where you explore <span class="dynamic-word"></span>';
             textElement.style.animation = 'blink-caret .75s step-end infinite';
-            type();
+            type(); 
         }, 500);
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     textElement.style.animation = 'blink-caret .75s step-end infinite';
-    type();
+    type(); 
 });
+

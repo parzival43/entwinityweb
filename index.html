@@ -1,41 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entwinity</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entwinity - Student Committee</title>
+    <link rel="stylesheet" href="css.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body>
-  <div id="intro-screen">
-    <div class="logo-wrap">
-      <div class="logo-circle">E</div>
-      <div class="logo-title">Entwinity</div>
+   
+  <div id="nav">
+    <img src="static/logo.png" alt="logo" style="height: 150px; width: auto;"/>
+    <div id="nav-links">
+        <h4>Home</h4>
+        <h4>About Us</h4>
+        <h4>Clubs</h4>
+        <h4>Opportunities</h4>
+        <h4>Contact</h4>
     </div>
-  </div>
+</div>
 
-  <div id="app" class="hidden">
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="sidebar-logo">E</div>
-        <div>
-          <div class="sidebar-title">Entwinity</div>
-          <div class="sidebar-subtitle">Community groups</div>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <div id="main">
+        <div id="page1">
+            
+            <h1>Welcome to Entwinity</h1>
+            <h2 id="dynamic-text"></h2>
+            <h3>
+                Entwinity connects students from <span style="font-weight: bold; color: black;">25 countries</span>, offering a world of opportunities for 
+                <span style="font-weight: bold; color: black;">personal</span> and <span style="font-weight: bold; color: black;">professional development</span>.
+                Whether you're seeking <span style="font-weight: bold; color: black;">internships</span>, eager to participate in <span style="font-weight: bold; color: black;">competitions</span>, or looking to 
+                <span style="font-weight: bold; color: black;">enhance your skills</span> through various courses, <span style="font-weight: bold; color: black;">we've got you covered !!</span>
+            </h3>
+            <br>
+            <button class="button">Join us now</button>
+
         </div>
-      </div>
-      <div id="group-list" class="group-list"></div>
-    </aside>
+       
+        <div id="about-us">
+            <div id="about-us-in">
+                <h3>About Us<i class="fas fa-globe" id="about-icon"></i></h3>
+                    <p>
+                        Entwinity is an international, student-driven committee connecting ambitious minds from over 25 countries—and growing! We provide a dynamic platform where students unite, share ideas, and innovate, offering countless avenues for personal and professional development.
+                    </p>
+                    <br>
+                    <h2>What Awaits You at Entwinity?</h2>
+                    <br><br>
+                </div>
+              
+            </div>
+            <div id="cards-container">
+                <div class="card" id="card1">
+                  <div class="overlay">
+                    <h4>Leadership Opportunities</h4>
+                    <p>
+                      Enhance your leadership skills and gain valuable experience by leading a club or project. Receive recognition and certification for your contributions.
+                    </p>
+                  </div>
+                </div>
+                <div class="card" id="card2">
+                  <div class="overlay">
+                    <h4>Collaborative Research</h4>
+                    <p>
+                      Participate in collaborative research projects, share resources, and work with students from around the world to solve real-world problems.
+                    </p>
+                  </div>
+                </div>
+                <div class="card" id="card3">
+                  <div class="overlay">
+                    <h4>Global Competitions</h4>
+                    <p>
+                      Compete in international competitions, showcase your skills, and connect with peers who share your passion for innovation and problem-solving.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div id="page2">
+                <div id="scroller">
+                    <div id="scroller-in">
+                        <h4>Internships</h4>
+                        <h4>Competitions</h4>
+                        <h4>Skill-Building Courses</h4>
+                        <h4>Volunteer Leadership</h4>
+                        <h4>Social Impact Projects</h4>
+                    </div>
+                    <div id="scroller-in">
+                        <h4>Internships</h4>
+                        <h4>Competitions</h4>
+                        <h4>Skill-Building Courses</h4>
+                        <h4>Volunteer Leadership</h4>
+                        <h4>Social Impact Projects</h4>
+                    </div>
+                </div>
+<br>
+<br>
 
-    <main class="content">
-      <div class="content-card">
-        <h1 id="group-title">Select a group</h1>
-        <p id="group-description">Pick a group from the left to see details and join the community.</p>
-        <a id="group-link" class="group-link" href="#" target="_blank" rel="noopener">Community link</a>
-      </div>
-    </main>
-  </div>
+<section class="section-card">
+    
+    <div class="scroll-side">
+        <br>
+        <br>
+        <br>
+        <div class="scroll-container" id="scrollContainer">
+            <div class="scroll-track" id="scrollTrack">
+                <!-- Club Cards -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-comments"></i>
+                    </div>
+                    <div class="club-name">General Chat</div>
+                    <div class="club-highlights">
+                        <p>Open discussions</p>
+                        <p>Community building</p>
+                        <p>Networking opportunities</p>
+                    </div>
+                </div>
+        
+                <!-- TYEAC -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-lightbulb"></i>
+                    </div>
+                    <div class="club-name">TYEAC</div>
+                    <div class="club-highlights">
+                        <p>Youth empowerment</p>
+                        <p>Leadership development</p>
+                        <p>Community initiatives</p>
+                    </div>
+                </div>
+        
+                <!-- Content Creation Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-video"></i>
+                    </div>
+                    <div class="club-name">Content Creation</div>
+                    <div class="club-highlights">
+                        <p>Digital content strategy</p>
+                        <p>Creative workshops</p>
+                        <p>Portfolio building</p>
+                    </div>
+                </div>
+        
+                <!-- Capital Crew Finance -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-chart-line"></i>
+                    </div>
+                    <div class="club-name">Capital Crew Finance</div>
+                    <div class="club-highlights">
+                        <p>Financial literacy</p>
+                        <p>Investment basics</p>
+                        <p>Market analysis</p>
+                    </div>
+                </div>
+        
+                <!-- Art of Persuasion -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-brain"></i>
+                    </div>
+                    <div class="club-name">Art of Persuasion</div>
+                    <div class="club-highlights">
+                        <p>Psychology principles</p>
+                        <p>Communication skills</p>
+                        <p>Influence techniques</p>
+                    </div>
+                </div>
+        
+                <!-- Dark Psychology Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-mask"></i>
+                    </div>
+                    <div class="club-name">Dark Psychology</div>
+                    <div class="club-highlights">
+                        <p>Behavioral analysis</p>
+                        <p>Psychology studies</p>
+                        <p>Mind dynamics</p>
+                    </div>
+                </div>
+        
+                <!-- Robotics & Automation -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-robot"></i>
+                    </div>
+                    <div class="club-name">Robotics & Automation</div>
+                    <div class="club-highlights">
+                        <p>Robot building</p>
+                        <p>Automation projects</p>
+                        <p>Tech competitions</p>
+                    </div>
+                </div>
+        
+                <!-- Delvore Research -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-microscope"></i>
+                    </div>
+                    <div class="club-name">Delvore Research</div>
+                    <div class="club-highlights">
+                        <p>Research methodology</p>
+                        <p>Academic projects</p>
+                        <p>Scientific exploration</p>
+                    </div>
+                </div>
+        
+                <!-- Ethereal Photography -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-camera"></i>
+                    </div>
+                    <div class="club-name">Ethereal Photography</div>
+                    <div class="club-highlights">
+                        <p>Photo techniques</p>
+                        <p>Creative workshops</p>
+                        <p>Photo exhibitions</p>
+                    </div>
+                </div>
+        
+                <!-- Gaming Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-gamepad"></i>
+                    </div>
+                    <div class="club-name">Gaming Club</div>
+                    <div class="club-highlights">
+                        <p>Gaming tournaments</p>
+                        <p>Strategy sessions</p>
+                        <p>Team building</p>
+                    </div>
+                </div>
+        
+                <!-- Bookworms Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-book"></i>
+                    </div>
+                    <div class="club-name">Bookworms Club</div>
+                    <div class="club-highlights">
+                        <p>Book discussions</p>
+                        <p>Reading challenges</p>
+                        <p>Literary events</p>
+                    </div>
+                </div>
+        
+                <!-- FemPower -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-venus"></i>
+                    </div>
+                    <div class="club-name">FemPower</div>
+                    <div class="club-highlights">
+                        <p>Women empowerment</p>
+                        <p>Leadership skills</p>
+                        <p>Mentorship programs</p>
+                    </div>
+                </div>
+        
+                <!-- Class 10th Boards -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="club-name">10th Boards</div>
+                    <div class="club-highlights">
+                        <p>Exam preparation</p>
+                        <p>Study groups</p>
+                        <p>Mock tests</p>
+                    </div>
+                </div>
+        
+                <!-- Mitochondria -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-bolt"></i>
+                    </div>
+                    <div class="club-name">Mitochondria</div>
+                    <div class="club-highlights">
+                        <p>Productivity hacks</p>
+                        <p>Time management</p>
+                        <p>Goal setting</p>
+                    </div>
+                </div>
+        
+                <!-- Art Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-palette"></i>
+                    </div>
+                    <div class="club-name">Art Club</div>
+                    <div class="club-highlights">
+                        <p>Creative projects</p>
+                        <p>Art workshops</p>
+                        <p>Exhibition opportunities</p>
+                    </div>
+                </div>
+        
+                <!-- Aurora Astronomy -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-star"></i>
+                    </div>
+                    <div class="club-name">Aurora Astronomy</div>
+                    <div class="club-highlights">
+                        <p>Star gazing events</p>
+                        <p>Space science</p>
+                        <p>Astronomy projects</p>
+                    </div>
+                </div>
+        
+                <!-- More clubs continued... -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-bullhorn"></i>
+                    </div>
+                    <div class="club-name">Entwinity Brand</div>
+                    <div class="club-highlights">
+                        <p>Brand strategy</p>
+                        <p>Marketing initiatives</p>
+                        <p>Creative campaigns</p>
+                    </div>
+                </div>
+        
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-utensils"></i>
+                    </div>
+                    <div class="club-name">Foodiee Club</div>
+                    <div class="club-highlights">
+                        <p>Culinary exploration</p>
+                        <p>Recipe sharing</p>
+                        <p>Food culture</p>
+                    </div>
+                </div>
+        
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-globe"></i>
+                    </div>
+                    <div class="club-name">Versatown MUN</div>
+                    <div class="club-highlights">
+                        <p>Model UN sessions</p>
+                        <p>Diplomatic skills</p>
+                        <p>Global affairs</p>
+                    </div>
+                </div>
+        
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="club-name">JEE & NEET</div>
+                    <div class="club-highlights">
+                        <p>Exam strategies</p>
+                        <p>Problem solving</p>
+                        <p>Study groups</p>
+                    </div>
+                </div>
+        
+                <!-- Social Problem Solving -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-hands-helping"></i>
+                    </div>
+                    <div class="club-name">Social Problem Solving</div>
+                    <div class="club-highlights">
+                        <p>Community projects</p>
+                        <p>Innovation challenges</p>
+                        <p>Impact initiatives</p>
+                    </div>
+                </div>
+        
+                <!-- 12th Boards/CUET -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-book-open"></i>
+                    </div>
+                    <div class="club-name">12th Boards/CUET</div>
+                    <div class="club-highlights">
+                        <p>Exam preparation</p>
+                        <p>Subject guidance</p>
+                        <p>Practice tests</p>
+                    </div>
+                </div>
+        
+                <!-- SAT Prep -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="club-name">SAT Prep</div>
+                    <div class="club-highlights">
+                        <p>Test strategies</p>
+                        <p>Practice sessions</p>
+                        <p>Score improvement</p>
+                    </div>
+                </div>
+        
+                <!-- Fitness Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-dumbbell"></i>
+                    </div>
+                    <div class="club-name">Fitness Club</div>
+                    <div class="club-highlights">
+                        <p>Workout sessions</p>
+                        <p>Health tips</p>
+                        <p>Fitness challenges</p>
+                    </div>
+                </div>
+        
+                <!-- TECH Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-microchip"></i>
+                    </div>
+                    <div class="club-name">TECH Club</div>
+                    <div class="club-highlights">
+                        <p>Tech innovations</p>
+                        <p>Coding projects</p>
+                        <p>Digital solutions</p>
+                    </div>
+                </div>
+        
+                <!-- Movie Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-film"></i>
+                    </div>
+                    <div class="club-name">Movie Club</div>
+                    <div class="club-highlights">
+                        <p>Film discussions</p>
+                        <p>Movie screenings</p>
+                        <p>Cinema analysis</p>
+                    </div>
+                </div>
+        
+                <!-- Fashionistas -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-tshirt"></i>
+                    </div>
+                    <div class="club-name">Fashionistas</div>
+                    <div class="club-highlights">
+                        <p>Style workshops</p>
+                        <p>Fashion trends</p>
+                        <p>Design projects</p>
+                    </div>
+                </div>
+        
+                <!-- Literature Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-feather-alt"></i>
+                    </div>
+                    <div class="club-name">Literature Club</div>
+                    <div class="club-highlights">
+                        <p>Creative writing</p>
+                        <p>Literary analysis</p>
+                        <p>Poetry sessions</p>
+                    </div>
+                </div>
+        
+                <!-- Speakup English -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-comments"></i>
+                    </div>
+                    <div class="club-name">Speakup English</div>
+                    <div class="club-highlights">
+                        <p>Speaking practice</p>
+                        <p>Grammar workshops</p>
+                        <p>Vocabulary building</p>
+                    </div>
+                </div>
+        
+                <!-- Soliloquy Debate -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-gavel"></i>
+                    </div>
+                    <div class="club-name">Soliloquy Debate</div>
+                    <div class="club-highlights">
+                        <p>Debate competitions</p>
+                        <p>Public speaking</p>
+                        <p>Argumentation skills</p>
+                    </div>
+                </div>
+        
+                <!-- Polymath Maths -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-calculator"></i>
+                    </div>
+                    <div class="club-name">Polymath Maths</div>
+                    <div class="club-highlights">
+                        <p>Math challenges</p>
+                        <p>Problem solving</p>
+                        <p>Mathematical concepts</p>
+                    </div>
+                </div>
+        
+                <!-- STEMB Club -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-atom"></i>
+                    </div>
+                    <div class="club-name">STEMB Club</div>
+                    <div class="club-highlights">
+                        <p>Science projects</p>
+                        <p>Tech integration</p>
+                        <p>Research work</p>
+                    </div>
+                </div>
+        
+                <!-- Kavi Sammelan -->
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-pen-fancy"></i>
+                    </div>
+                    <div class="club-name">Kavi Sammelan</div>
+                    <div class="club-highlights">
+                        <p>Poetry recitation</p>
+                        <p>Creative writing</p>
+                        <p>Cultural events</p>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-robot"></i>
+                    </div>
+                    <div class="club-name">Robotics Club</div>
+                    <div class="club-highlights">
+                        <p>Hands-on projects with real robots</p>
+                        <p>Weekly workshops and competitions</p>
+                        <p>Networking with industry experts</p>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-microchip"></i>
+                    </div>
+                    <div class="club-name">AI Club</div>
+                    <div class="club-highlights">
+                        <p>Learn about machine learning</p>
+                        <p>Participate in hackathons</p>
+                        <p>Guest lectures from professionals</p>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-code-branch"></i>
+                    </div>
+                    <div class="club-name">Coding Club</div>
+                    <div class="club-highlights">
+                        <p>Coding competitions and challenges</p>
+                        <p>Collaborative coding sessions</p>
+                        <p>Open-source project contributions</p>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-headphones-alt"></i>
+                    </div>
+                    <div class="club-name">Music Club</div>
+                    <div class="club-highlights">
+                        <p>Collaborate with fellow musicians</p>
+                        <p>Perform at local events</p>
+                        <p>Explore different genres</p>
+                    </div>
+                </div>
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-palette"></i>
+                    </div>
+                    <div class="club-name">Art Club</div>
+                    <div class="club-highlights">
+                        <p>Work on various art projects</p>
+                        <p>Attend exhibitions and workshops</p>
+                        <p>Learn from guest artists</p>
+                    </div>
+                </div>
+                
+                <div class="club-card">
+                    <div class="icon-wrapper">
+                        <i class="icon fas fa-book-reader"></i>
+                    </div>
+                    <div class="club-name">Literature Club</div>
+                    <div class="club-highlights">
+                        <p>Discuss great literary works</p>
+                        <p>Engage in writing workshops</p>
+                        <p>Host reading events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script src="js.js"></script>
+    <div class="content-side">
+        <h1 class="content-title">Clubs at Entwinity</h1>
+        
+        <div class="feature-item">
+            <i class="feature-icon fas fa-globe-americas"></i>
+            <span class="feature-text">Our clubs are hubs for collaborative growth. Here, you’ll engage in research, competitions, projects, workshops, expert panels, career discussions, mock exams, societal impact projects, and much more—all for free.🌍</span>
+        </div>
+        
+        <div class="feature-item">
+            <i class="feature-icon fas fa-user-tie"></i>
+            <span class="feature-text">Leadership & Incentives: Gain leadership skills, boost your college applications, and receive a certificate for your contributions. ✨</span>
+        </div>
+        
+        <div class="feature-item">
+            <i class="feature-icon fas fa-project-diagram"></i>
+            <span class="feature-text">Collaboration & Growth: Participate in revenue-sharing opportunities, industry partnerships, and get guidance from alumni. 🌟</span>
+        </div>
+        
+        <div class="feature-item">
+            <i class="feature-icon fas fa-users"></i>
+            <span class="feature-text">Comprehensive Development: Enhance research, teamwork, and problem-solving skills while contributing to resource libraries, social media promotion, and global symposiums. 🤝</span>
+        </div>
+
+        <div class="club-info">
+            <p>In our clubs, we focus on collaborative research, competitions, projects, sharing resources, workshops, and problem-solving. We invite experts, organize career discussions, mock exams, and competitions while emphasizing societal impact projects.</p>
+            <p>Being a club leader brings numerous benefits:</p>
+            <ul>
+                <li>Embrace Diversity: Connect with students from diverse backgrounds.</li>
+                <li>Build Skills: Enhance your leadership and teamwork abilities.</li>
+                <li>Expand Your Network: Cultivate relationships with peers and professionals.</li>
+            </ul>
+            <br>
+            <p>Be part of Entwinity’s mission of collaboration, where we’re not just connecting students—we’re building a global community of change-makers. 🌐✨</p>
+        </div>
+    </div>
+</section>
+    <br>
+    <br>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Entwinity</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Student Committee</a></li>
+                    <li><a href="#">Global Network</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Programs</h3>
+                <ul>
+                    <li><a href="#">Student Clubs</a></li>
+                    <li><a href="#">Leadership Opportunities</a></li>
+                    <li><a href="#">Global Competitions</a></li>
+                    <li><a href="#">Research Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Join a Club</a></li>
+                    <li><a href="#">Become a Leader</a></li>
+                    <li><a href="#">Events Calendar</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Entwinity. All rights reserved. Connecting students across 25 countries.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" defer></script>
+    <script src="js.js" defer></script>
 </body>
 </html>
-<!-- Handcrafted by Senthil Arasu J -->
